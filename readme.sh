@@ -7,6 +7,6 @@ while IFS= read -r line; do
         echo "# $c" > "$line/README.md"
         ((i++))
     fi
-done < <(find . -type d | grep -v git)
+done < <(find . -type d | grep -Ev "^\./\.git")
 
 echo "$i README.md file added"
